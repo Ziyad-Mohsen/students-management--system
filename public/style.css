@@ -1,0 +1,262 @@
+/* Base Styles */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Container and Layout */
+.container {
+  max-width: 1200px;
+  padding: 2rem;
+}
+
+/* Header Styles */
+h1 {
+  color: var(--bs-heading-color);
+  font-weight: 600;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--bs-primary);
+}
+
+/* Card Styles */
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+  background-color: var(--bs-card-bg);
+}
+
+/* Add form card specific styles */
+#addStudentForm.card {
+  transition: 0.5s;
+  transform-origin: top;
+  opacity: 0;
+  transform: scaleY(0);
+  display: block !important;
+  height: 0;
+  overflow: hidden;
+}
+
+#addStudentForm.card.show {
+  opacity: 1;
+  transform: scaleY(1);
+  height: auto;
+}
+
+#addStudentForm.card:hover {
+  transform: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover:not(#addStudentForm) {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-title {
+  color: var(--bs-heading-color);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--bs-border-color);
+  padding-bottom: 0.5rem;
+}
+
+.card-text {
+  color: var(--bs-body-color);
+  margin-bottom: 1.5rem;
+}
+
+/* Button Styles */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #3498db;
+  border-color: #3498db;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+  border-color: #2980b9;
+}
+
+.btn-danger {
+  background-color: #e74c3c;
+  border-color: #e74c3c;
+}
+
+.btn-danger:hover {
+  background-color: #c0392b;
+  border-color: #c0392b;
+}
+
+.btn-success {
+  background-color: #2ecc71;
+  border-color: #2ecc71;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+}
+
+.btn-success:hover {
+  background-color: #27ae60;
+  border-color: #27ae60;
+}
+
+/* Form Styles */
+.form-control {
+  border-radius: 5px;
+  border: 1px solid var(--bs-border-color);
+  padding: 0.75rem;
+  transition: border-color 0.3s ease, background-color 0.3s ease,
+    color 0.3s ease;
+  background-color: var(--bs-form-control-bg);
+  color: var(--bs-body-color);
+}
+
+.form-control:focus {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.25);
+}
+
+.form-label {
+  font-weight: 500;
+  color: var(--bs-heading-color);
+  margin-bottom: 0.5rem;
+}
+
+/* Modal Styles */
+.modal-content {
+  border-radius: 10px;
+  border: none;
+  background-color: var(--bs-modal-bg);
+  color: var(--bs-modal-color);
+}
+
+.modal-header {
+  background-color: var(--bs-modal-header-bg);
+  border-bottom: 1px solid var(--bs-border-color);
+  border-radius: 10px 10px 0 0;
+}
+
+.modal-title {
+  color: var(--bs-heading-color);
+  font-weight: 600;
+}
+
+/* Alert Styles */
+.alert {
+  border-radius: 8px;
+  border: none;
+  padding: 1rem;
+}
+
+.alert-info {
+  background-color: var(--bs-info-bg-subtle);
+  color: var(--bs-info-text);
+}
+
+.alert-danger {
+  background-color: var(--bs-danger-bg-subtle);
+  color: var(--bs-danger-text);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  transition: all 0.3s ease;
+}
+
+.theme-toggle i {
+  transition: transform 0.3s ease;
+}
+
+[data-bs-theme="dark"] .theme-toggle i {
+  transform: rotate(180deg);
+}
+
+/* Dark Mode Specific Styles */
+[data-bs-theme="dark"] {
+  --bs-card-bg: #2c2c2c;
+  --bs-modal-bg: #2c2c2c;
+  --bs-modal-header-bg: #333333;
+  --bs-form-control-bg: #333333;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .card {
+    margin-bottom: 1rem;
+  }
+
+  .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Animation for Success Message */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.alert-success {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
