@@ -120,7 +120,6 @@ export function createStudentRow(student) {
 export async function getStudents() {
   try {
     const data = await fetchStudents();
-    console.log(data);
     displayStudents(data);
   } catch (error) {
     console.error("Error fetching students:", error);
