@@ -10,7 +10,7 @@ app.use("/", express.static("public"));
 
 app.use("/api/students", require("./routes/Students"));
 
+// Start server
 app.listen(port, () => {
-  const url = `http://localhost:${port}`;
-  console.log("Listening at " + url);
+  console.log(`Server is running on port ${port}`);
 });
